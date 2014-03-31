@@ -7,17 +7,12 @@ var fs = require('fs');
 
 describe('It should store data', function(){
 
-  it('Store sample data', function (cb) {
-
+  it('Store sample data', function () {
     var stream = toJson();
 
     stream.on('end', function(){
-      fs.readFile('output.json', function (err, data) {
-        if (err) throw err;
-        console.log(JSON.parse(data)[0]);
-        JSON.parse(data)[0].should.equal('public/index.html');
-        cb();
-      });
+      var data = fs.readlinkSync('output.json');
+      JSON.parse(data)[0].should.equal('public/index.html');
     });
 
     stream.write(new gutil.File({

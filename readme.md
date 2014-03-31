@@ -15,7 +15,7 @@ npm install --save-dev gulp-to-json
 var gulp = require('gulp');
 var toJson = require('gulp-to-json');
 
-gulp.task('screens', function () {
+gulp.task('tojson', function () {
   gulp.src('./public/*.html')
   .pipe(toJson());
 });
