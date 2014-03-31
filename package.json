@@ -13,7 +13,7 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "mocha -R spec --timeout 10000"
+    "test": "mocha -R spec --timeout 3000"
   },
   "files": [
     "index.js"

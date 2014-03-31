@@ -29,7 +29,7 @@ This will create output.json file in which will be all html files from public fo
 #### filename
 
 Type: `String`  
-Default: 'public'
+Default: 'output.json'
 
 Filename where to save json file
 
