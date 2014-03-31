@@ -1,0 +1,34 @@
+{
+  "name": "gulp-to-json",
+  "version": "0.0.1",
+  "description": "Create json file from sources.",
+  "license": "MIT",
+  "repository": "danielhusar/gulp-to-json",
+  "author": {
+    "name": "Daniel Husar",
+    "email": "dano.husar@gmail.com",
+    "url": "https://github.com/danielhusar"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "scripts": {
+    "test": "mocha -R spec --timeout 10000"
+  },
+  "files": [
+    "index.js"
+  ],
+  "keywords": [
+    "gulpplugin",
+    "json"
+  ],
+  "dependencies": {
+    "gulp-util": "~2.2.14",
+    "through2": "^0.4.0"
+  },
+  "devDependencies": {
+    "mocha": "*",
+    "should": "*"
+  },
+  "readmeFilename": "readme.md"
+}
