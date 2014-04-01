@@ -21,15 +21,12 @@ module.exports = function (options) {
       return cb();
     }
 
-    files.push(file.relative);
+    files.push(file.path);
     this.push(file);
     cb();
 
   }, function(cb){
-    fs.writeFile(options.filename, JSON.stringify(files), function (err) {
-      if (err) throw err;
-      gutil.log('gulp-to-json:', gutil.colors.green('✔ ') + options.filename);
-      cb();
-    });
+    fs.writeFileSync(options.filename, JSON.stringify(files));
+    cb();
   });
 };
