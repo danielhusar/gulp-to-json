@@ -22,7 +22,12 @@ gulp.task('tojson', function () {
 
 ```
 
-This will create output.json file in which will be all html files from public folder.
+This will create output.json file in which will be all the html files from public folder.
+The output will have absolute paths according to your env, but you can remove them for example like this:
+
+```
+require('../output.json').map(function(x){ return x.replace(/^.+\/public/, ''); })
+```
 
 ## Options
 
