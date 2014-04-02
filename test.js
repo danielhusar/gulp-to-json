@@ -14,10 +14,13 @@ describe('It should store data', function(){
     });
 
     stream.on('end', function(){
-      var data = fs.readFileSync('output.json');
-      var str = JSON.parse(data)[0].split('/');
-      str[str.length - 1].should.equal('index.html');
-      cb();
+      fs.readFile('output.json', function(err, data){
+        var str = JSON.parse(data)[0].split('/');
+        str[str.length - 1].should.equal('index.html');
+        fs.unlink('output.json');
+        cb();
+      });
+
     });
 
     stream.write(new gutil.File({

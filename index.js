@@ -26,7 +26,9 @@ module.exports = function (options) {
     cb();
 
   }, function(cb){
-    fs.writeFileSync(options.filename, JSON.stringify(files));
-    cb();
+    fs.writeFile(options.filename, JSON.stringify(files), function(){
+      cb();
+    });
+
   });
 };
