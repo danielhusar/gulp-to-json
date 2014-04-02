@@ -7,10 +7,10 @@ var fs = require('fs');
 describe('It should store data', function(){
 
   it('Store sample data', function (cb) {
+
     var stream = toJson();
 
-    stream.on('data', function(){
-    });
+    stream.on('data', function(){});
 
     stream.on('end', function(){
       fs.readFile('output.json', function(err, data){
@@ -29,6 +29,7 @@ describe('It should store data', function(){
     }));
 
     stream.end();
+
   });
 
 });
