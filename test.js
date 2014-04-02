@@ -1,5 +1,4 @@
 'use strict';
-var assert = require('assert');
 var should = require('should');
 var gutil = require('gulp-util');
 var toJson = require('./index');
