@@ -17,7 +17,7 @@ module.exports = function (options) {
     }
 
     if (file.isStream()) {
-      this.emit('error', new gutil.PluginError('gulp-local-screenshots', 'Streaming not supported'));
+      this.emit('error', new gutil.PluginError('gulp-to-json', 'Streaming not supported'));
       return cb();
     }
 
