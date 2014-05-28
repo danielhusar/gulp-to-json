@@ -27,7 +27,7 @@ module.exports = function (options) {
 
   }, function(cb){
 
-    fs.writeFile(options.filename, JSON.stringify(files), function(){
+    fs.writeFile(options.filename, JSON.stringify(files, null, 2), function(){
       cb();
     });
 
