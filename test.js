@@ -8,18 +8,16 @@ describe('It should store data', function(){
 
   it('Store sample data', function (cb) {
 
-    var stream = toJson();
+    var stream = toJson({
+      strip: /^.+\/?\\?public\/?\\?/
+    });
 
     stream.on('data', function(){});
 
     stream.on('end', function(){
-      fs.readFile('output.json', function(err, data){
-        var str = JSON.parse(data)[0].split('/');
-        str[str.length - 1].should.equal('index.html');
-        fs.unlink('output.json');
-        cb();
-      });
-
+      var data = require('./output.json');
+      data[0].should.equal('index.html');
+      cb();
     });
 
     stream.write(new gutil.File({

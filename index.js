@@ -8,6 +8,7 @@ module.exports = function (options) {
 
   options = options ? options : {};
   options.filename = options.filename || 'output.json';
+  options.strip = options.strip || false;
 
   return through.obj(function (file, enc, cb) {
 
@@ -21,7 +22,11 @@ module.exports = function (options) {
       return cb();
     }
 
-    files.push(file.path);
+    var path = file.path;
+    if(options.strip){
+      path = path.replace(options.strip, '');
+    }
+    files.push(path);
     this.push(file);
     cb();
 
