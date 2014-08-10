@@ -12,6 +12,12 @@ module.exports = function (options) {
 
   return through.obj(function (file, enc, cb) {
 
+    var path = file.path;
+    if (options.strip) {
+      path = path.replace(options.strip, '');
+    }
+    files.push(path);
+
     if (file.isNull()) {
       this.push(file);
       return cb();
@@ -22,19 +28,12 @@ module.exports = function (options) {
       return cb();
     }
 
-    var path = file.path;
-    if(options.strip){
-      path = path.replace(options.strip, '');
-    }
-    files.push(path);
     this.push(file);
-    cb();
+    return cb();
 
-  }, function(cb){
+  }, function (cb) {
 
-    fs.writeFile(options.filename, JSON.stringify(files, null, 2), function(){
-      cb();
-    });
+    fs.writeFile(options.filename, JSON.stringify(files, null, 2), cb);
 
   });
 };
