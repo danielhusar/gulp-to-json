@@ -5,13 +5,13 @@ Create json file from source files passed to
 
 ## Install
 
-```
+```sh
 npm install --save-dev gulp-to-json
 ```
 
 ## Example
 
-```
+```js
 var gulp = require('gulp');
 var toJson = require('gulp-to-json');
 
@@ -19,10 +19,9 @@ gulp.task('tojson', function () {
   gulp.src('./public/*.html')
   .pipe(toJson());
 });
-
 ```
 
-```
+```js
 var gulp = require('gulp');
 var toJson = require('gulp-to-json');
 
@@ -32,7 +31,6 @@ gulp.task('tojson', function () {
     strip: /^.+\/?\\?public\/?\\?/ //create realative urls from absolutes by removing everything from left of public/ folder 
   }));
 });
-
 ```
 
 This will create output.json file in which will be all the html files from public folder.
