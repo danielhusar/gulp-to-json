@@ -1,6 +1,6 @@
 {
   "name": "gulp-to-json",
-  "version": "0.2.0",
+  "version": "1.0.0",
   "description": "Create json file from sources.",
   "license": "MIT",
   "repository": "danielhusar/gulp-to-json",
