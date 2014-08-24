@@ -28,17 +28,12 @@ var toJson = require('gulp-to-json');
 gulp.task('tojson', function () {
   gulp.src('./public/*.html')
   .pipe(toJson({
-    strip: /^.+\/?\\?public\/?\\?/ //create realative urls from absolutes by removing everything from left of public/ folder 
+    strip: /^.+\/?\\?public\/?\\?/ //create just file names by removing everything from left of public/ folder 
   }));
 });
 ```
 
 This will create output.json file in which will be all the html files from public folder.
-The output will have absolute paths according to your env, but you can remove them for example like this:
-
-```
-require('../output.json').map(function(x){ return x.replace(/^.+\/public/, ''); })
-```
 
 ## Options
 
@@ -49,6 +44,12 @@ Default: 'output.json'
 
 Filename where to save json file
 
+#### relative
+
+Type: `Boolean`  
+Default: 'false'
+
+If the relative urls should be used
 
 #### strip
 
