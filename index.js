@@ -1,11 +1,11 @@
 'use strict';
-var gutil = require('gulp-util');
-var through = require('through2');
-var fs = require('fs');
+const PluginError = require('plugin-error');
+const through = require('through2');
+const fs = require('fs');
 
 module.exports = function (options) {
 
-  var files = [];
+  let files = [];
 
   options = options ? options : {};
   options.filename = options.filename || 'output.json';
@@ -15,11 +15,11 @@ module.exports = function (options) {
   return through.obj(function (file, enc, cb) {
 
     if (file.isStream()) {
-      this.emit('error', new gutil.PluginError('gulp-to-json', 'Streaming not supported'));
+      this.emit('error', new PluginError('gulp-to-json', 'Streaming not supported'));
       return cb();
     }
 
-    var path = file.path;
+    let path = file.path;
     if (options.relative) {
       path = file.relative;
     }

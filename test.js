@@ -1,9 +1,8 @@
 'use strict';
 
-var fs = require('fs');
-var gutil = require('gulp-util');
-var should = require('should');
-var toJson = require('./index');
+const should = require('should');
+const toJson = require('./index');
+const Vinyl = require('vinyl');
 
 
 describe('It should store data', function () {
@@ -22,7 +21,7 @@ describe('It should store data', function () {
       cb();
     });
 
-    stream.write(new gutil.File({
+    stream.write(new Vinyl({
       base: __dirname,
       path: __dirname + '/public/index.html',
       contents: new Buffer('unicorns')
@@ -47,7 +46,7 @@ describe('It should store data', function () {
       cb();
     });
 
-    stream.write(new gutil.File({
+    stream.write(new Vinyl({
       base: __dirname,
       path: __dirname + '/public/index.html',
       contents: new Buffer('unicorns')
