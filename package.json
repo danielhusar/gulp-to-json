@@ -1,6 +1,6 @@
 {
   "name": "gulp-to-json",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create json file from sources.",
   "license": "MIT",
   "repository": "danielhusar/gulp-to-json",
@@ -28,7 +28,7 @@
     "vinyl": "^2.2.0"
   },
   "devDependencies": {
-    "mocha": "^1.19.0",
+    "mocha": "^6.0.2",
     "should": "^3.3.2"
   },
   "readmeFilename": "readme.md"
